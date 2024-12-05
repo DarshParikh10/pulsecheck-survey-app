@@ -1,35 +1,65 @@
+/* General Styling */
 body {
-    background-color: #f1f5f8;
+    background-color: #f0f8ff;
 }
 
-#quiz-container {
+/* Progress Bar Styling */
+#progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    width: 0%; /* Start at 0% and update dynamically */
+    background-color: #4caf50;
+    transition: width 0.5s ease;
+}
+
+/* Survey Card Styling */
+#survey-container {
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 20, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-.card {
-    padding: 20px;
+/* Option Hover Effects */
+.form-check-label {
+    transition: all 0.3s ease;
 }
 
-/* Animation for score updates */
-@keyframes scoreUpdate {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+.form-check:hover .form-check-label {
+    transform: scale(1.05);
+    color: #4caf50;
+    font-weight: bold;
 }
 
-#score-display {
-    font-size: 1.5rem;
-    animation: scoreUpdate 0.3s ease-in-out;
+/* Submit Button */
+#submit-btn {
+    display: none;
 }
 
-/* Hint button style */
-.hint {
-    font-size: 0.9rem;
-    color: #007bff;
-    cursor: pointer;
+/* Result Text */
+.result-text {
+    font-size: 1.3rem;
+    color: #4caf50;
 }
-.hint:hover {
-    text-decoration: underline;
+
+/* Fade-in Animation for Questions */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#survey-container > h5, .form-check {
+    animation: fadeIn 0.5s ease both;
 }
